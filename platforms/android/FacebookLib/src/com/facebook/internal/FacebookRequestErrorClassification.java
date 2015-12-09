@@ -166,7 +166,7 @@ public final class FacebookRequestErrorClassification {
             return null;
         }
 
-        Map<Integer, Set<Integer>> items = new HashMap<>();
+        Map<Integer, Set<Integer>> items = new HashMap<Integer, Set<Integer>>();
         for (int i = 0; i < itemsArray.length(); i++) {
             JSONObject item = itemsArray.optJSONObject(i);
             if (item == null) {
@@ -179,7 +179,7 @@ public final class FacebookRequestErrorClassification {
             Set<Integer> subcodes = null;
             JSONArray subcodesArray = item.optJSONArray("subcodes");
             if (subcodesArray != null && subcodesArray.length() > 0) {
-                subcodes = new HashSet<>();
+                subcodes = new HashSet<Integer>();
                 for (int j = 0; j < subcodesArray.length(); j++) {
                     int subCode = subcodesArray.optInt(j);
                     if (subCode != 0) {

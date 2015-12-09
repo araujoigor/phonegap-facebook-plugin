@@ -60,7 +60,7 @@ public class CollectionMapper {
         };
 
         Iterator<T> keyIterator = collection.keyIterator();
-        List<T> keys = new LinkedList<>();
+        List<T> keys = new LinkedList<T>();
         while (keyIterator.hasNext()) {
             keys.add(keyIterator.next());
         }

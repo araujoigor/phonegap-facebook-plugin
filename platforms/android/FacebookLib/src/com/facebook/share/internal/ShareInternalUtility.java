@@ -315,7 +315,7 @@ public final class ShareInternalUtility {
             final ShareOpenGraphAction action)
             throws JSONException {
 
-        final ArrayList<NativeAppCallAttachmentStore.Attachment> attachments = new ArrayList<>();
+        final ArrayList<NativeAppCallAttachmentStore.Attachment> attachments = new ArrayList<NativeAppCallAttachmentStore.Attachment>();
         JSONObject actionJSON = OpenGraphJSONUtility.toJSONObject(
                 action,
                 new OpenGraphJSONUtility.PhotoJSONProcessor() {
@@ -451,7 +451,7 @@ public final class ShareInternalUtility {
         } else {
             fieldName = fullName;
         }
-        return new Pair<>(namespace, fieldName);
+        return new Pair<String, String>(namespace, fieldName);
     }
 
     ;
@@ -895,7 +895,7 @@ public final class ShareInternalUtility {
         ParcelFileDescriptor descriptor =
                 ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY);
         GraphRequest.ParcelableResourceWithMimeType<ParcelFileDescriptor> resourceWithMimeType =
-                new GraphRequest.ParcelableResourceWithMimeType<>(descriptor, "image/png");
+                new GraphRequest.ParcelableResourceWithMimeType<ParcelFileDescriptor>(descriptor, "image/png");
         Bundle parameters = new Bundle(1);
         parameters.putParcelable(STAGING_PARAM, resourceWithMimeType);
 
@@ -935,7 +935,7 @@ public final class ShareInternalUtility {
         }
 
         GraphRequest.ParcelableResourceWithMimeType<Uri> resourceWithMimeType =
-                new GraphRequest.ParcelableResourceWithMimeType<>(imageUri, "image/png");
+                new GraphRequest.ParcelableResourceWithMimeType<Uri>(imageUri, "image/png");
         Bundle parameters = new Bundle(1);
         parameters.putParcelable(STAGING_PARAM, resourceWithMimeType);
 

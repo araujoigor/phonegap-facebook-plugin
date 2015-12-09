@@ -200,7 +200,7 @@ public final class SharePhoto implements ShareModel {
         }
 
         public static void writeListTo(final Parcel out, final List<SharePhoto> photos) {
-            final List<SharePhoto> list = new ArrayList<>();
+            final List<SharePhoto> list = new ArrayList<SharePhoto>();
             for (SharePhoto photo : photos) {
                 list.add(photo);
             }
@@ -208,7 +208,7 @@ public final class SharePhoto implements ShareModel {
         }
 
         public static List<SharePhoto> readListFrom(final Parcel in) {
-            final List<SharePhoto> list = new ArrayList<>();
+            final List<SharePhoto> list = new ArrayList<SharePhoto>();
             in.readTypedList(list, CREATOR);
             return list;
         }

@@ -173,7 +173,7 @@ public class GameRequestDialog
 
     @Override
     protected List<ModeHandler> getOrderedModeHandlers() {
-        ArrayList<ModeHandler> handlers = new ArrayList<>();
+        ArrayList<ModeHandler> handlers = new ArrayList<ModeHandler>();
         handlers.add(new WebHandler());
 
         return handlers;

@@ -105,7 +105,7 @@ public class NativeDialogParameters {
             boolean dataErrorsFatal) {
         Bundle params = createBaseParameters(photoContent, dataErrorsFatal);
 
-        params.putStringArrayList(ShareConstants.PHOTOS, new ArrayList<>(imageUrls));
+        params.putStringArrayList(ShareConstants.PHOTOS, new ArrayList<String>(imageUrls));
 
         return params;
     }
