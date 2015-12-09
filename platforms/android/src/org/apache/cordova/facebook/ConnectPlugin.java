@@ -119,6 +119,8 @@ public class ConnectPlugin extends CordovaPlugin {
                 public void onError(FacebookException e) {
                     Log.i(TAG, "LoginManager onError");
                     loginContext.error("Login error.");
+                    e.printStackTrace();
+                    LoginManager.getInstance().logOut();
                 }
         });
 
@@ -568,7 +570,7 @@ public class ConnectPlugin extends CordovaPlugin {
                 parameters = bundleFromJSONObject(args.getJSONObject(2));
                 method = HttpMethod.valueOf(args.getString(3));
             } catch (JSONException e) {
-                // Do nothing
+                e.printStackTrace();
             }
 
             boolean publishPermissions = false;
@@ -588,9 +590,9 @@ public class ConnectPlugin extends CordovaPlugin {
                 if (publishPermissions && readPermissions) {
                     graphContext.error("Cannot ask for both read and publish permissions.");
                 } else {
-                    if (accessToken.getPermissions().containsAll(permissionsList)) {
+                    //if (accessToken.getPermissions().containsAll(permissionsList)) {
                         makeGraphCall(graphPath, parameters, method);
-                    } else {
+                    /*} else {
                         // Set up the activity result callback to this class
                         // TODO: Complete the graph call?
                         cordova.setActivityResultCallback(this);
@@ -602,7 +604,7 @@ public class ConnectPlugin extends CordovaPlugin {
                             // Request new read permissions
                             LoginManager.getInstance().logInWithReadPermissions(cordova.getActivity(), permissionsList);
                         }
-                    }
+                    }*/
                 }
             } else {
                 makeGraphCall(graphPath, parameters, method);
